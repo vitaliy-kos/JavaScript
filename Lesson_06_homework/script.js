@@ -33,8 +33,8 @@ const getMax = (arr) => {
 
 let first = getNum(),
     second = getNum(),
-    third =  getNum(),
-    arr = [first, second, third]
+    third =  getNum()
+const arr = [first, second, third]
 
 console.log(getMax(arr));
 

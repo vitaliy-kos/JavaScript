@@ -16,7 +16,7 @@ for (let i = 0; i <= 10; i++) {
 // Дан массив [1, 2, 3, 4, 5, 6, 7]
 // Сделайте из этого массива следующий [1, 2, 3, 6, 7]
 
-let arr = [1, 2, 3, 4, 5, 6, 7]
+const arr = [1, 2, 3, 4, 5, 6, 7]
 arr = arr.filter((number) => number !== 4 && number !== 5 )
 
 // Задание 3
@@ -25,7 +25,7 @@ arr = arr.filter((number) => number !== 4 && number !== 5 )
 // 2. Найти минимальное число
 // 3. Найти есть ли в этом массиве число 3
 
-let array = []
+const array = []
 
 for (let i = 0; i < 5; i++) {
     array.push(Math.round(Math.random() * 10))
