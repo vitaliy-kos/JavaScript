@@ -2,7 +2,7 @@
 // Создайте функцию которая возводит переданное число в куб, необходимо вывести в консоль результат 2^3 степени + 3^3 степени
 
 function toCube(num) {
-    return num*num*num
+    return num ** 3
 }
 console.log(toCube(2) + toCube(3))
 

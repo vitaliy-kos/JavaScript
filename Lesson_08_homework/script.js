@@ -1,0 +1,4 @@
+function methodName (arguments) {
+    // body
+}
+
