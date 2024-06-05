@@ -89,6 +89,9 @@
         if (i % 2 == 0) 
                 el.style.background = 'green'
     });
+    // или
+    document.querySelectorAll('ul li:nth-child(2n)')
+            .forEach(el => el.style.backgroundColor = 'green');
 
     </script>
 </body>
