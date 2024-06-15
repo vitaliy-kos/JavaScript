@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продолжение js - урок 10 домашнее задание</title>
+</head>
+<body>
+    <div class="root"></div>
+    
+    <script src="data.js"></script>
+
+    <script>
+        "use strict";
+
+        const root = document.querySelector('.root');
+        root.style.display = 'flex';
+
+        data.forEach( one => {
+            
+            const block = document.createElement('div'),
+              image = document.createElement('img'),
+              title = document.createElement('h1'),
+              text = document.createElement('p');
+
+            block.classList.add('block');
+            block.style.padding = '18px';
+            block.style.border = '1px solid black';
+            block.style.textAlign = 'center';
+
+            image.classList.add('image');
+            image.src = one.picture.large;
+
+            title.classList.add('title');
+            title.innerText = `${one.name.first} ${one.name.last}`;
+
+            text.classList.add('text');
+            text.innerText = one.email;
+
+            block.append(title, image, text);
+            root.append(block);
+        });
+    </script>
+</body>
+</html>
