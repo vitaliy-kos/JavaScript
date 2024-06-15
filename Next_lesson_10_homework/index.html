@@ -67,7 +67,7 @@
         };
 
         btnBlock.querySelector('button').addEventListener('click', async (e) => {
-            const getted = await await doFetch('https://randomuser.me/api/');
+            const getted = await doFetch('https://randomuser.me/api/');
             createElem(getted.results[0]);
         });
         
