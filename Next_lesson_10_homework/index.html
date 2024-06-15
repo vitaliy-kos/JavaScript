@@ -13,15 +13,12 @@
     <script>
         "use strict";
 
-        const root = document.querySelector('.root');
-        root.style.display = 'flex';
-
-        data.forEach( one => {
+        const createElem = (data) => {
             
             const block = document.createElement('div'),
-              image = document.createElement('img'),
-              title = document.createElement('h1'),
-              text = document.createElement('p');
+                  image = document.createElement('img'),
+                  title = document.createElement('h1'),
+                  text = document.createElement('p');
 
             block.classList.add('block');
             block.style.padding = '18px';
@@ -29,17 +26,51 @@
             block.style.textAlign = 'center';
 
             image.classList.add('image');
-            image.src = one.picture.large;
+            image.src = data.picture.large;
 
             title.classList.add('title');
-            title.innerText = `${one.name.first} ${one.name.last}`;
+            title.innerText = `${data.name.first} ${data.name.last}`;
 
             text.classList.add('text');
-            text.innerText = one.email;
+            text.innerText = data.email;
 
             block.append(title, image, text);
-            root.append(block);
+            peopleBlock.append(block);
+
+        };
+
+        const root = document.querySelector('.root'),
+              btnBlock = document.createElement('div'),
+              peopleBlock = document.createElement('div');
+
+        btnBlock.classList.add('btnBlock');
+        btnBlock.insertAdjacentHTML('beforeend','<button>Добавить еще одного</button>');
+
+        peopleBlock.style.display = 'flex';
+        peopleBlock.style.gap = '20px';
+        peopleBlock.style.flexWrap = 'wrap';
+        peopleBlock.style.marginTop = '40px';
+        
+        root.append(btnBlock, peopleBlock)
+
+        data.forEach(one => createElem(one));
+
+        // Подгрузка по API
+        const doFetch = async (url) => {
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                return data;
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+
+        btnBlock.querySelector('button').addEventListener('click', async (e) => {
+            const getted = await await doFetch('https://randomuser.me/api/');
+            createElem(getted.results[0]);
         });
+        
     </script>
 </body>
 </html>
