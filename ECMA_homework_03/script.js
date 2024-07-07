@@ -8,8 +8,6 @@
 // Метод displayInfo() - переопределяет метод displayInfo() родительского класса и выводит информацию о менеджере (имя и отдел).
 
 class Employee {
-    name = '';
-
     constructor(name) {
         this.name = name;
     }
@@ -20,8 +18,6 @@ class Employee {
 }
 
 class Manager extends Employee {
-    department = '';
-
     constructor(name, department) {
         super();
         this.name = name;
@@ -41,12 +37,10 @@ manager.displayInfo(); // "Name: John Doe, Department: Sales"
 
 
 // Задание 2: "Управление списком заказов"
-
 // Реализуйте класс Product (товар), который имеет следующие свойства и методы:
 // Свойство name - название товара.
 // Свойство price - цена товара.
 // Свойство quantity - количество товара.
-
 // Реализуйте класс Order (заказ), который имеет следующие свойства и методы:
 // Свойство id (номер заказа) - число, уникальный номер заказа.
 // Свойство products (продукты) - массив, содержащий список продуктов в заказе.
@@ -54,10 +48,6 @@ manager.displayInfo(); // "Name: John Doe, Department: Sales"
 // Метод getTotalPrice() - возвращает общую стоимость заказа, основанную на ценах продуктов.
 
 class Product {
-    name = '';
-    price = 0;
-    quantity = 0;
-
     constructor(name, price, quantity) {
         this.name = name;
         this.price = price;
@@ -70,7 +60,6 @@ class Product {
 }
 
 class Order {
-    id = 0;
     products = [];
 
     constructor(id) {
@@ -78,11 +67,11 @@ class Order {
     }
 
     addProduct(product) {
-        this.products.push();
-        
+        this.products.push(product);
     }
+
     getTotalPrice(){
-        console.log(`Name: ${this.name}`);
+        return this.products.reduce((result, prod) => {return result + prod.price * prod.quantity}, 0);
     }
 }
 
