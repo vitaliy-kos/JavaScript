@@ -9,17 +9,27 @@
 
 class Employee {
     name = '';
-    age = '';
-    grade = '';
 
-    constructor(name, age, grade) {
+    constructor(name) {
         this.name = name;
-        this.age = age;
-        this.grade = grade;
     }
 
     displayInfo() {
-        console.log(`Name: ${this.name}, Age: ${this.age}, Grade: ${this.grade}`);
+        console.log(`Name: ${this.name}`);
+    }
+}
+
+class Manager extends Employee {
+    department = '';
+
+    constructor(name, department) {
+        super();
+        this.name = name;
+        this.department = department;
+    }
+
+    displayInfo() {
+        console.log(`Name: ${this.name}, Department: ${this.department}`);
     }
 }
 
@@ -43,13 +53,43 @@ manager.displayInfo(); // "Name: John Doe, Department: Sales"
 // Метод addProduct(product) - принимает объект класса Product и добавляет его в список продуктов заказа.
 // Метод getTotalPrice() - возвращает общую стоимость заказа, основанную на ценах продуктов.
 
-// // Пример использования:
-// const order = new Order(12345);
+class Product {
+    name = '';
+    price = 0;
+    quantity = 0;
 
-// const product1 = new Product("Phone", 500, 2);
-// order.addProduct(product1);
+    constructor(name, price, quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
-// const product2 = new Product("Headphones", 100, 1);
-// order.addProduct(product2);
+    displayInfo() {
+        console.log(`Name: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`);
+    }
+}
 
-// console.log(order.getTotalPrice()); // Вывод: 1100
+class Order {
+    id = 0;
+    products = [];
+
+    constructor(id) {
+        this.id = id;
+    }
+
+    addProduct(product) {
+        this.products.push();
+        
+    }
+    getTotalPrice(){
+        console.log(`Name: ${this.name}`);
+    }
+}
+
+// Пример использования:
+const order = new Order(12345);
+const product1 = new Product("Phone", 500, 2);
+order.addProduct(product1);
+const product2 = new Product("Headphones", 100, 1);
+order.addProduct(product2);
+console.log(order.getTotalPrice()); // Вывод: 1100

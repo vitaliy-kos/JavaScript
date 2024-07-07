@@ -7,9 +7,6 @@
 // Метод displayInfo() - выводит информацию о книге (название, автор и количество страниц).
 
 class Book {
-    title = '';
-    author = '';
-    pages = 0;
 
     constructor(title, author, pages) {
         this.title = title;
@@ -34,9 +31,6 @@ book.displayInfo(); // "Title: BookName1, Author: Author1, Pages: 123"
 // Метод displayInfo() - выводит информацию о студенте в консоль.
 
 class Student {
-    name = '';
-    age = 0;
-    grade = '';
 
     constructor(name, age, grade) {
         this.name = name;
