@@ -9,7 +9,7 @@
 class Book {
     title = '';
     author = '';
-    pages = '';
+    pages = 0;
 
     constructor(title, author, pages) {
         this.title = title;
@@ -35,7 +35,7 @@ book.displayInfo(); // "Title: BookName1, Author: Author1, Pages: 123"
 
 class Student {
     name = '';
-    age = '';
+    age = 0;
     grade = '';
 
     constructor(name, age, grade) {
