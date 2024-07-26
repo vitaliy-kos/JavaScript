@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер изображений</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Слайдер изображений</h1>
+        <div class="slider">
+            <ul class="images">
+                <li data-id="1" class="active">
+                    <img src="./images/1.jpg" alt="Описание">
+                </li>
+                <li data-id="2">
+                    <img src="./images/2.jpg" alt="Описание">
+                </li>
+                <li data-id="3">
+                    <img src="./images/3.jpg" alt="Описание">
+                </li>
+                <li data-id="4">
+                    <img src="./images/4.jpg" alt="Описание">
+                </li>
+                <li data-id="5">
+                    <img src="./images/5.jpg" alt="Описание">
+                </li>
+            </ul>
+
+            <div class="prev"></div>
+            <div class="next"></div>
+
+            <div class="dots"></div>
+        </div>
+    </div>
+
+    <script>
+        const sliderEl = document.querySelector('.slider'),
+              imageElems = sliderEl.querySelectorAll('.images li'),
+              dotsElem = sliderEl.querySelector('.dots'),
+              prev = sliderEl.querySelector('.prev'),
+              next = sliderEl.querySelector('.next');
+
+        function changeSlide(idShow) {
+            imageElems.forEach(imageElem => {
+                imageElem.classList.remove('active');
+
+                if (imageElem.dataset.id == idShow) {
+                    imageElem.classList.add('active');
+                }
+            });
+
+            dotsElem
+                .querySelector('.dot.active')
+                .classList.remove('active');
+            dotsElem
+                .querySelector(`[data-target='${idShow}']`)
+                .classList.add('active');
+        }
+
+        function initDots(sliderEl) {
+            imageElems.forEach(imageElem => {
+                const dot = document.createElement('div');
+
+                dot.addEventListener('click', () => {
+                    changeSlide(imageElem.dataset.id);
+                });
+
+                dot.classList.add('dot');
+                if (imageElem.classList.contains('active')) {
+                    dot.classList.add('active');
+                }
+                dot.dataset.target = imageElem.dataset.id;
+                
+                dotsElem.insertAdjacentElement('beforeend', dot);
+            });
+        }
+
+        [prev, next].forEach(elem => {
+            elem.addEventListener('click', () => {
+                const curId = parseInt(document.querySelector('.images li.active').dataset.id);
+                const isPrev = elem.classList.contains('prev');
+                const isNext = elem.classList.contains('next');
+
+                if (isNext && curId == imageElems.length) {
+                    changeSlide(1);
+                } else if (isPrev && curId == 1) {
+                    changeSlide(imageElems.length);
+                } else {
+                    changeSlide(isPrev ? curId - 1 : curId + 1);
+                }
+            });
+        })
+
+        window.addEventListener('load', initDots(sliderEl));
+    </script>
+</body>
+</html>

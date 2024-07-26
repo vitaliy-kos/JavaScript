@@ -1,0 +1,116 @@
+.container {
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 100px;
+
+    h1 {
+        text-align: center;
+        font-size: 25px;
+        margin: 50px 0;
+    }
+    .slider {
+        border: 1px solid rgb(184, 182, 182);
+        border-radius: 20px;
+        position: relative;
+        padding: 3px;
+
+        .images {
+            height: 500px;
+            padding: 0;
+            margin: 0;
+            border-radius: 15px;
+            list-style: none;
+            overflow: hidden;
+
+            li {
+                display: none;
+                width: 100%;
+                height: 100%;
+
+                &.active {
+                    display: block;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: 50%;
+            transform: translate(0, -50%);
+            border: 1px solid rgb(184, 182, 182);
+            border-radius: 50px;
+            cursor: pointer;
+            
+            &:hover {
+                background: rgb(184, 182, 182);
+
+                &::after {
+                    border-color: #fff;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                top: 50%;
+                border-left: 3px solid rgb(184, 182, 182);
+                border-top: 3px solid rgb(184, 182, 182);
+            }
+        }
+
+        .prev {
+            left: -60px;
+
+            &::after {
+                transform: rotate(-45deg);
+                left: calc(50% - 5px);
+                top: calc(50% - 7px);
+            }
+        }
+        .next {
+            right: -60px;
+
+            &::after {
+                transform: rotate(135deg);
+                left: calc(50% - 10px);
+                top: calc(50% - 7px);
+            }
+        }
+
+        .dots {
+            position: absolute;
+            display: flex;
+            bottom: -30px;
+            left: 50%;
+            transform: translate(-50%, 0);
+
+            .dot {
+                height: 10px;
+                width: 10px;
+                margin-right: 10px;
+                border-radius: 50px;
+                background: rgb(184, 182, 182);
+                cursor: pointer;
+
+                &:hover {
+                    background: rgb(65, 140, 253);
+                }
+
+                &.active {
+                    background: rgb(140, 185, 252);
+                }
+            }
+        }
+    }
+}
