@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+input, textarea {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body {
+    width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+}
+.menu {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.menu li.active {
+    border: 1px solid grey;
+}
+.menu li {
+    padding: 10px 20px;
+}
+.menu li a {
+    text-decoration: none;
+}
+.send_btn {
+    margin-bottom: 24px;
+    margin-top: 24px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+.reviews {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    background: #fff8ce;
+}
+.product {
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 20px;
+    background: #e2ffdf;
+}
+.product h3 {
+    margin-bottom: 20px;
+}
+.product .review {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    padding: 20px;
+    background: #ffdff9;
+}
+.product .review p {
+    font-size: 16px;
+}
+.product .review button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 16px;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+}
+.error_msg {
+    color: red;
+}
